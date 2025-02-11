@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+<link rel="stylesheet" href="style.css">
+<section class="page-content-holder page-right-card tools-card-style" id="input-content">
+	<h1>نمونه کار محمد مرادیان تبدیل اعداد به حروف فارسی</h1>
+	 <label class="h3style" for="numbers">مبلغ به عدد را وارد کنید - ریال:</label>
+	<br/>
+  <div class="center">
+	<input type="text" class="form-control number user-number" name="numbers" id="numbers" placeholder="به طور مثال(ریال): 10000">
+	<div class="invalid-feedback">
+	</div>
+  </div>
+ <br/>
+	<label class="h3style" for="numbers">نتیجه به حروف - ریال:</label>
+	<br/>
+	<br/>
+  <div id="result" class="boxx">
+	 <span class="text-lpr" id="result-txt"></span>
+  </div>
+	<br/>
+   <div class="center">
+	 <button type="submit" class="btn btn-primary btn-lg btn-block btn-green" onclick="copyToClipboard($('#result-txt').html())" title="کپی">کپی</button>
+   </div>
+
+
+   <div id="popup" class="popup">
+	<div class="popup-content">
+	    <span class="close" onclick="closePopup()">&times;</span>
+	    <p>متن مورد نظر کپی شد!</p>
+	</div>
+  </div>
+</section>
+
+<script>
+	function copyToClipboardAndShowPopup() {
+    const textToCopy = document.getElementById('result-txt').innerHTML;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        showPopup();
+    }).catch(err => {
+        console.error('Error copying text: ', err);
+    });
+}
+
+function showPopup() {
+    document.getElementById('popup').style.display = 'flex';
+}
+
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+}
+
+</script>
+<script src="script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="functions.js"></script>
+<script src="persian.js"></script>
+<script src="num2persian.js"></script>
+<script src="digitsToWords.js"></script>
+
+
+<!--  میدونم برات سخته عزیزم ولی لطفا اگر پروژه رو داری کپی برداری میکنی بازم یک نام ای از من ببر 
+  برای صبحت بیشتر میتونی به شماره تلفن زیر بهم زنگ بزنی برای درخواست پروژه و آموزش و پیگیری هر چیزی
+  
+ ! 09014565433
+ ? ایدی تلگرامم بهت میدم بهم پیام بدی
+ ! https://t.me/moad_13web
+ -->
+
+</body>
+</html>
